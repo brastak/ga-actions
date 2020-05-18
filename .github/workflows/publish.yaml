@@ -6,5 +6,5 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: echo ${{ github.event.client_payload }}
+      - name: Echo
+        run: echo ${{ github.event.client_payload }}
