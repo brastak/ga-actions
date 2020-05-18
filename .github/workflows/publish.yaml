@@ -1,7 +1,7 @@
 name: Repository Dispatch
 on:
   repository_dispatch:
-    types: [release-event]
+    types: ['release-event']
 jobs:
   publish:
     runs-on: ubuntu-latest
