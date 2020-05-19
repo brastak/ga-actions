@@ -19,7 +19,7 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages 
-          FOLDER: report
+          FOLDER: files/report
           TARGET_FOLDER: ${{ github.event.client_payload.release }}/files/upload
       - name: Check parameters
         run: echo ${{ github.event.client_payload.release }}
