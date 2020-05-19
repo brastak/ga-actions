@@ -6,4 +6,13 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.client_payload.release }}
+      - name: Check out the code
+        uses: actions/checkout@v2
+      - name: Run performance tests
+        env:
+          TF_VAR_access_key: ${{ secrets.PERF_AWS_ACCESS_KEY }}
+          TF_VAR_secret_key: ${{ secrets.PERF_AWS_SECRET_KEY }}
+        run: ./run.sh upload-files.jmx artipie
+        working-directory: ./files
+      - name: Check parameters
+        run: echo ${{ github.event.client_payload.release }}
