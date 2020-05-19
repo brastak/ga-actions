@@ -14,5 +14,12 @@ jobs:
           TF_VAR_secret_key: ${{ secrets.PERF_AWS_SECRET_KEY }}
         run: ./run.sh upload-files.jmx artipie
         working-directory: ./files
+      - name: Publish reports
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages 
+          FOLDER: report
+          TARGET_FOLDER: ${{ github.event.client_payload.release }}/files/upload
       - name: Check parameters
         run: echo ${{ github.event.client_payload.release }}
