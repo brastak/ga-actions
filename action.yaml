@@ -29,4 +29,4 @@ runs:
     - ${{ inputs.adapter }}
     - ${{ inputs.scenario }}
     - artipie
-    - ${{ inputs.version }}
+    - 0.6.7
